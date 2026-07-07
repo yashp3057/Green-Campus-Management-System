@@ -1,29 +1,29 @@
-# 🌿 Green Campus Management System
+#  Green Campus Management System
 
 A web-based Green Campus Management System developed using **Flask** and **PostgreSQL** to simplify campus resource management. The application provides an easy-to-use interface for managing users and maintaining campus data with complete CRUD operations.
 
 ---
 
-## 📖 Project Overview
+##  Project Overview
 
 The Green Campus Management System is designed to digitally manage campus resources. It replaces manual record-keeping with a centralized database, making it easier to store, update, and manage information efficiently.
 
 ---
 
-## ✨ Features
+##  Features
 
-- 👤 User Management (Create, Read, Update, Delete)
-- 🗄️ PostgreSQL Database Integration
-- 📝 Add New Users
-- ✏️ Update User Details
-- ❌ Delete Users
-- 📋 View All Users
-- 🎨 Clean and Responsive User Interface
-- 🔒 Secure Database Connectivity
+- User Management (Create, Read, Update, Delete)
+- PostgreSQL Database Integration
+-  Add New Users
+-  Update User Details
+-  Delete Users
+-  View All Users
+-  Clean and Responsive User Interface
+-  Secure Database Connectivity
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Backend:** Python, Flask
 - **Database:** PostgreSQL
@@ -32,7 +32,7 @@ The Green Campus Management System is designed to digitally manage campus resour
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```text
 Green-Campus-Management-System/
@@ -54,7 +54,7 @@ Green-Campus-Management-System/
 
 ---
 
-## 🚀 Installation
+##  Installation
 
 ### 1. Clone the Repository
 
@@ -93,9 +93,16 @@ http://127.0.0.1:5000
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
-> Add screenshots of your application here.
+### Home Page
+
+![Home Page](screenshots/2.png)
+
+### Add User
+
+![Add User](screenshots/1.png)
+
 
 - Dashboard
 - User List
@@ -105,7 +112,7 @@ http://127.0.0.1:5000
 
 ---
 
-## 🔮 Future Enhancements
+##  Future Enhancements
 
 - Authentication & Login System
 - Role-Based Access Control
@@ -117,7 +124,7 @@ http://127.0.0.1:5000
 
 ---
 
-## 👨‍💻 Author
+##  Author
 
 **Yash Parmar**
 
@@ -125,4 +132,4 @@ http://127.0.0.1:5000
 
 ---
 
-## ⭐ If you found this project useful, consider giving it a Star!
+##  If you found this project useful, consider giving it a Star!
