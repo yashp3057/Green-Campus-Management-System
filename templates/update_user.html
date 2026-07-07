@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Update User</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Update User #{{ user.user_id }}</h2>
+    <form method="POST">
+      <label>Role</label>
+      <select name="role" required>
+        <option value="administrator" {% if user.role=='administrator' %}selected{% endif %}>administrator</option>
+        <option value="supervisor" {% if user.role=='supervisor' %}selected{% endif %}>supervisor</option>
+        <option value="worker" {% if user.role=='worker' %}selected{% endif %}>worker</option>
+      </select>
+
+      <label>First name</label>
+      <input type="text" name="firstname" value="{{ user.firstname }}" required>
+
+      <label>Last name</label>
+      <input type="text" name="lastname" value="{{ user.lastname }}">
+
+      <label>Email</label>
+      <input type="email" name="email" value="{{ user.email }}" required>
+
+      <label>Salary</label>
+      <input type="number" step="0.01" name="salary" value="{{ user.salary }}">
+
+      <label>Supervisor</label>
+      <select name="supervisor_id">
+        <option value="">-- none --</option>
+        {% for s in supervisors %}
+          <option value="{{ s.user_id }}" {% if s.user_id==user.supervisor_id %}selected{% endif %}>
+            {{ s.firstname }} {{ s.lastname or '' }} ({{ s.user_id }})
+          </option>
+        {% endfor %}
+      </select>
+
+      <button class="btn edit" type="submit">Update User</button>
+    </form>
+    <a class="btn back" href="{{ url_for('index') }}">← Back</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Users — Green Campus</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Users — Green Campus Management</h1>
+      <a class="btn add" href="{{ url_for('add_user') }}">+ Add User</a>
+    </header>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for category, message in messages %}
+        <div class="alert {{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endwith %}
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th><th>Name</th><th>Role</th><th>Email</th><th>Salary</th><th>Supervisor ID</th><th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for u in users %}
+        <tr>
+          <td>{{ u.user_id }}</td>
+          <td>{{ u.firstname }} {{ u.lastname or '' }}</td>
+          <td>{{ u.role }}</td>
+          <td>{{ u.email }}</td>
+          <td>{{ u.salary }}</td>
+          <td>{{ u.supervisor_id }}</td>
+          <td>
+            <a class="btn edit" href="{{ url_for('update_user', user_id=u.user_id) }}">Edit</a>
+            <form style="display:inline" action="{{ url_for('delete_user', user_id=u.user_id) }}" method="POST" onsubmit="return confirm('Delete user {{ u.firstname }}? This will nullify their references.')">
+              <button class="btn delete" type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

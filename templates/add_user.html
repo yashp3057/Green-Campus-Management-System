@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Add User</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Add New User</h2>
+
+    <form method="POST">
+
+      <!-- ✅ New optional custom User ID field -->
+      <label>User ID (optional or custom)</label>
+      <input type="number" name="user_id" placeholder="Enter custom ID">
+
+      <label>Role</label>
+      <select name="role" required>
+        <option value="administrator">administrator</option>
+        <option value="supervisor">supervisor</option>
+        <option value="worker">worker</option>
+      </select>
+
+      <label>First name</label>
+      <input type="text" name="firstname" required>
+
+      <label>Last name</label>
+      <input type="text" name="lastname">
+
+      <label>Email</label>
+      <input type="email" name="email" required>
+
+      <label>Salary</label>
+      <input type="number" step="0.01" name="salary">
+
+      <label>Supervisor</label>
+      <select name="supervisor_id">
+        <option value="">-- none --</option>
+        {% for s in supervisors %}
+          <option value="{{ s.user_id }}">{{ s.firstname }} {{ s.lastname or '' }} ({{ s.user_id }})</option>
+        {% endfor %}
+      </select>
+
+      <button class="btn add" type="submit">Add User</button>
+    </form>
+
+    <a class="btn back" href="{{ url_for('index') }}">← Back</a>
+  </div>
+</body>
+</html>
